@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>암웨이 제품 영상 모음</title>
+    <meta
+      name="description"
+      content="뉴트리라이트, 아티스트리, 홈리빙, 이스프링 제품 설명과 사용 영상을 모은 페이지입니다."
+    />
+    <meta name="theme-color" content="#3182F6" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233182F6'/%3E%3C/svg%3E"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="eyebrow">제품 이해</p>
+        <h1>암웨이 제품 영상 모음</h1>
+        <p class="lead">
+          설명 영상과 사용·실험 영상을 카테고리별로 모아 두었습니다.
+        </p>
+        <label class="search">
+          <span class="sr-only">영상 제목 검색</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <input
+            id="search"
+            type="search"
+            placeholder="영상 제목 검색"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+        </label>
+      </div>
+    </header>
+
+    <div class="tabs-bar">
+      <div class="wrap">
+        <div id="tabs" class="tabs" role="tablist" aria-label="카테고리"></div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <p id="count" class="count" aria-live="polite"></p>
+      <div id="grid" class="grid"></div>
+      <p id="empty" class="empty" hidden>해당하는 영상이 없습니다.</p>
+    </main>
+
+    <footer class="wrap">
+      <p>
+        영상의 저작권은 각 채널에 있습니다. 이 페이지는 제품 이해를 돕기 위한
+        영상 모음입니다.
+      </p>
+    </footer>
+
+    <dialog id="modal" class="modal" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <button type="button" class="close" id="modal-close" aria-label="닫기">
+          <span aria-hidden="true"></span>
+        </button>
+        <div class="player">
+          <iframe
+            id="player"
+            title="영상 재생"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+        <div class="modal-body">
+          <span id="modal-type" class="badge"></span>
+          <h2 id="modal-title"></h2>
+          <p id="modal-channel" class="channel"></p>
+          <p id="modal-note" class="note"></p>
+          <a id="modal-link" class="yt-link" target="_blank" rel="noopener noreferrer">
+            유튜브에서 보기
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="videos.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
